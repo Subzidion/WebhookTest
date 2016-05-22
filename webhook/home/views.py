@@ -1,4 +1,13 @@
-from django.views import generic
+from django.views.generic import TemplateView
+from django.http import HttpResponse
+from ipware.ip import get_ip
+from . import secrets
 
-class IndexView(generic.TemplateView):
+import requests
+
+class IndexView(TemplateView):
     template_name = 'home/index.html'
+    
+    def post(self, request, *args, **kwargs):
+        print(request)        
+        return HttpResponse(status=200)
