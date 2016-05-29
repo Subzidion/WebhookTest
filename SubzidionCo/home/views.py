@@ -1,6 +1,6 @@
 from django.views.generic import TemplateView
 from django.http import HttpResponse
-from ipware.ip import get_ip
+#from ipware.ip import get_ip
 from . import secrets
 
 import requests
