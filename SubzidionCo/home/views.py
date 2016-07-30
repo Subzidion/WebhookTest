@@ -14,6 +14,15 @@ class IndexView(TemplateView):
         context['showMore'] = len(movies) > 10 
         return context
 
+class MovieView(TemplateView):
+    template_name = 'home/movies.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(MovieView, self).get_context_data(**kwargs)
+        context['movies'] = list(reversed(list(models.Movie.objects.all())))
+        return context
+
+
 def githubWebhook(request):
     if request.method == 'POST':
         print("POST")

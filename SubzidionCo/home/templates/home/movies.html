@@ -24,31 +24,18 @@
 <body>
 <div class="container" style="padding-top: 25px;">
     <div class="row">
-        <div class="col-md-6 text-center">
-            <div class="block" style="background-color: #3E96A8; padding: 20px;">
-                <a target="_blank" href="https://github.com/Subzidion"><i class="fa fa-github fa-2x"></i></a>
-                <a target="_blank" href="https://twitter.com/Subzidion"><i class="fa fa-twitter fa-2x"></i></a>
-                <a target="_blank" href="https://www.linkedin.com/in/carlhiltbrunner"><i class="fa fa-linkedin fa-2x"></i></a>
-            </div>
-            <div class="block" style="background-color: #EC8013; padding: 50px;">
-            </div>
-        </div>
-        <div class="col-md-6 text-center">
-            <div class="block" style="background-color:#D23D3D; padding: 100px;">
-                <h1>Coming soon</h1>
-            </div>
+        <div class="col-md-12">
             <div class="block" style="text-align: center; background-color:#6D878D; padding: 75px;">
                 {% if movies|length == 0 %}
                     Carl has not watched any movies lately...
                 {% else %}
+                    <h3><strong>Movies</strong></h3>
                     <table class="table">
-                        <h3><strong>Recent Movies</strong></h3>
                         <tbody>
                             <tr>
                                 <th>Score</th>
                                 <th>Movie</th>
                                 <th colspan=2>Streaming</th>
-                            </tr>
                             {% for movie in movies %}
                             <tr>
                                 <td style="text-align: center;">{{movie.score }}/100</td>
@@ -59,9 +46,7 @@
                             {% endfor %}
                         </tbody>
                     </table>
-                    {% if showMore %}
-                    <a href="{% url 'home:movies' %}"><strong>View More</strong></a>
-                    {% endif %}
+                    <a href={% url 'home:index' %}><strong>Go back</strong></a>
                 {% endif %}
             </div>
         </div>
