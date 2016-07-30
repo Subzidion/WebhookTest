@@ -35,6 +35,12 @@
                 <h1>Coming soon</h1>
             </div>
             <div class="block" style="background-color:#6D878D; padding: 75px;">
+                {% for movie in movies|slice:":10" %}
+                {{movie.score }}/100 {{ movie.name }}{% if movie.netflix %} Netflix{% endif %}{% if movie.amazonPrime %} <i class="fa fa-amazon fa-2x"></i>{% endif %}<br>
+                {% endfor %}
+                {% if movies|length > 10 %}
+                View More...
+                {% endif %}
             </div>
         </div>
     </div>
