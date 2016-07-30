@@ -8,7 +8,10 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
-        context['movies'] = models.Movie.objects.all()
+        movies = models.Movie.objects.all()
+        # get latest movies starting with most recent
+        context['movies'] = movies[max(0, (len(movies) - 10)):][::-1]
+        context['showMore'] = len(movies) > 10 
         return context
 
 def githubWebhook(request):
